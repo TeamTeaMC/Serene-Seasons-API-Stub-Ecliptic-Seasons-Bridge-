@@ -1,14 +1,14 @@
 package com.teamtea.eclipticseasons_serene_compatibility.config;
 
 import com.teamtea.eclipticseasons.config.CommonConfig;
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.event.config.ModConfigEvent;
+import net.neoforged.fml.event.config.ModConfigEvent;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import sereneseasons.init.ModConfig;
 
 public class LayerCommonConfig {
-    public static final ForgeConfigSpec COMMON_CONFIG = new ForgeConfigSpec.Builder().configure(LayerCommonConfig::new).getRight();
+    public static final ModConfigSpec COMMON_CONFIG = new ModConfigSpec.Builder().configure(LayerCommonConfig::new).getRight();
 
-    protected LayerCommonConfig(ForgeConfigSpec.Builder builder) {
+    protected LayerCommonConfig(ModConfigSpec.Builder builder) {
 
     }
 

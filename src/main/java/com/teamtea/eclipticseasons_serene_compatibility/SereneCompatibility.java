@@ -4,14 +4,18 @@ package com.teamtea.eclipticseasons_serene_compatibility;
 import com.teamtea.eclipticseasons_serene_compatibility.config.LayerClientConfig;
 import com.teamtea.eclipticseasons_serene_compatibility.config.LayerCommonConfig;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.loading.FMLLoader;
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -82,26 +86,24 @@ public class SereneCompatibility {
     }
 
 
-    @SuppressWarnings("removal")
-    public SereneCompatibility() {
-        // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
-
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+    public SereneCompatibility(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::gatherData);
         modEventBus.addListener(this::FMLCommonSetup);
 
         modEventBus.addListener(LayerCommonConfig::UpdateConfig);
         modEventBus.addListener(LayerClientConfig::UpdateConfig);
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, LayerCommonConfig.COMMON_CONFIG);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, LayerClientConfig.CLIENT_CONFIG);
+        modContainer.registerConfig(ModConfig.Type.COMMON, LayerCommonConfig.COMMON_CONFIG);
+        modContainer.registerConfig(ModConfig.Type.CLIENT, LayerClientConfig.CLIENT_CONFIG);
+
+        if (FMLLoader.getDist() == Dist.CLIENT)
+            modContainer.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+
+
     }
 
-    @SuppressWarnings("removal")
     public static ResourceLocation rl(String id) {
-        return new ResourceLocation(MODID, id);
+        return ResourceLocation.fromNamespaceAndPath(MODID, id);
     }
 
     public void FMLCommonSetup(final FMLCommonSetupEvent event) {

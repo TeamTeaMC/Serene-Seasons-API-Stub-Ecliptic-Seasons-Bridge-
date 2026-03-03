@@ -1,13 +1,14 @@
 package com.teamtea.eclipticseasons_serene_compatibility.config;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.event.config.ModConfigEvent;
+
+import net.neoforged.fml.event.config.ModConfigEvent;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class LayerClientConfig {
 
-    public static final ForgeConfigSpec CLIENT_CONFIG = new ForgeConfigSpec.Builder().configure(LayerClientConfig::new).getRight();
+    public static final ModConfigSpec CLIENT_CONFIG = new ModConfigSpec.Builder().configure(LayerClientConfig::new).getRight();
 
-    protected LayerClientConfig(ForgeConfigSpec.Builder builder) {
+    protected LayerClientConfig(ModConfigSpec.Builder builder) {
 
     }
 

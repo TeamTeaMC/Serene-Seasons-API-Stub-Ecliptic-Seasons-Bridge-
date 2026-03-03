@@ -2,11 +2,12 @@ package com.teamtea.eclipticseasons_serene_compatibility;
 
 import com.teamtea.eclipticseasons.api.event.SolarTermChangeEvent;
 import com.teamtea.eclipticseasons_serene_compatibility.api.EclipticSeasonTime;
+import com.teamtea.eclipticseasons_serene_compatibility.config.LayerCommonConfig;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.event.TagsUpdatedEvent;
-import net.minecraftforge.event.level.LevelEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.TagsUpdatedEvent;
+import net.neoforged.neoforge.event.level.LevelEvent;
 import sereneseasons.api.season.Season;
 import sereneseasons.api.season.SeasonHelper;
 import sereneseasons.init.ModConfig;
@@ -15,7 +16,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
 
-@Mod.EventBusSubscriber(modid = SereneCompatibility.MODID)
+@EventBusSubscriber(modid = SereneCompatibility.MODID)
 
 public class AllListener {
     @SubscribeEvent
@@ -59,6 +60,6 @@ public class AllListener {
 
     @SubscribeEvent
     public static void onTagsUpdatedEvent(TagsUpdatedEvent event) {
-        ModConfig.init();
+        LayerCommonConfig.init();
     }
 }
