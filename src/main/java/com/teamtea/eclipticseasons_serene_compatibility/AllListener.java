@@ -2,6 +2,7 @@ package com.teamtea.eclipticseasons_serene_compatibility;
 
 import com.teamtea.eclipticseasons.api.event.SolarTermChangeEvent;
 import com.teamtea.eclipticseasons_serene_compatibility.api.EclipticSeasonTime;
+import com.teamtea.eclipticseasons_serene_compatibility.config.LayerCommonConfig;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.TagsUpdatedEvent;
 import net.minecraftforge.event.level.LevelEvent;
@@ -43,7 +44,8 @@ public class AllListener {
             try {
                 if (fireMethod == null) {
                     Class<?> eventManagerClass = Class.forName("glitchcore.event.EventManager");
-                    fireMethod = eventManagerClass.getMethod("fire", Object.class);
+                    Class<?> eventBaseClass = Class.forName("glitchcore.event.Event");
+                    fireMethod = eventManagerClass.getMethod("fire", eventBaseClass);
 
                     Class<?> eventClass = Class.forName("sereneseasons.api.season.SeasonChangedEvent$Standard");
                     eventConstructor = eventClass.getConstructor(Level.class, Season.SubSeason.class, Season.SubSeason.class);
@@ -59,6 +61,6 @@ public class AllListener {
 
     @SubscribeEvent
     public static void onTagsUpdatedEvent(TagsUpdatedEvent event) {
-        ModConfig.init();
+        LayerCommonConfig.init();
     }
 }

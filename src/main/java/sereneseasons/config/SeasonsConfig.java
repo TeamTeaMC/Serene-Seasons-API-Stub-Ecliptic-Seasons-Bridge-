@@ -13,7 +13,10 @@ import net.minecraft.world.level.Level;
 import sereneseasons.api.season.Season;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class SeasonsConfig {
 
@@ -36,20 +39,37 @@ public class SeasonsConfig {
         return (CommonConfig.Season.validDimensions.get().contains(dimension.location().toString()));
     }
 
+    private static final Map<Season.SubSeason, SeasonProperties> DEFAULT_SEASON_PROPERTIES =
+            Arrays.stream(new SeasonProperties[]{
+
+                    // Winter
+                    new SeasonProperties(Season.SubSeason.EARLY_WINTER, 0.0F, 0),
+                    new SeasonProperties(Season.SubSeason.MID_WINTER, 0.0F, 0),
+                    new SeasonProperties(Season.SubSeason.LATE_WINTER, 0.0F, 0),
+
+                    // Spring
+                    new SeasonProperties(Season.SubSeason.EARLY_SPRING, 6.25F, 1),
+                    new SeasonProperties(Season.SubSeason.MID_SPRING, 8.33F, 1),
+                    new SeasonProperties(Season.SubSeason.LATE_SPRING, 12.5F, 1),
+
+                    // Summer
+                    new SeasonProperties(Season.SubSeason.EARLY_SUMMER, 25.0F, 1),
+                    new SeasonProperties(Season.SubSeason.MID_SUMMER, 25.0F, 1),
+                    new SeasonProperties(Season.SubSeason.LATE_SUMMER, 25.0F, 1),
+
+                    // Autumn
+                    new SeasonProperties(Season.SubSeason.EARLY_AUTUMN, 12.5F, 1),
+                    new SeasonProperties(Season.SubSeason.MID_AUTUMN, 8.33F, 1),
+                    new SeasonProperties(Season.SubSeason.LATE_AUTUMN, 6.25F, 1),
+
+            }).collect(Collectors.toMap(
+                    SeasonProperties::subSeason,
+                    p -> p
+            ));
+
     public SeasonProperties getSeasonProperties(Season.SubSeason season) {
-        return new SeasonProperties(
-                season,
-                100.0F,
-                1,
-                0.0F,
-                12000, 36000,
-                12000, 36000,
-                -1,
-                -1,
-                -1,
-                -1,
-                -1
-        );
+        //SolarTerm solarTerm = SolarTerm.collectValidValues()[season.ordinal() * 2];
+        return DEFAULT_SEASON_PROPERTIES.get(season);
     }
 
     public static record SeasonProperties(
@@ -59,6 +79,13 @@ public class SeasonsConfig {
             float grassSaturation, int foliageColour, float foliageSaturation,
             int birchColor
     ) {
+        public SeasonProperties(Season.SubSeason subSeason, float meltChance, int meltRolls) {
+            this(subSeason, meltChance, meltRolls,
+                    0.0F,
+                    12000, 36000,
+                    12000, 36000,
+                    -1,-1,-1,-1,-1);
+        }
         public boolean canRain() {
             return minRainTime != -1;
         }
