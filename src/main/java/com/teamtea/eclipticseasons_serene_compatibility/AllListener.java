@@ -44,8 +44,8 @@ public class AllListener {
             try {
                 if (fireMethod == null) {
                     Class<?> eventManagerClass = Class.forName("glitchcore.event.EventManager");
-                    fireMethod = eventManagerClass.getMethod("fire", Object.class);
-
+                    Class<?> eventBaseClass = Class.forName("glitchcore.event.Event");
+                    fireMethod = eventManagerClass.getMethod("fire", eventBaseClass);
                     Class<?> eventClass = Class.forName("sereneseasons.api.season.SeasonChangedEvent$Standard");
                     eventConstructor = eventClass.getConstructor(Level.class, Season.SubSeason.class, Season.SubSeason.class);
                 }
