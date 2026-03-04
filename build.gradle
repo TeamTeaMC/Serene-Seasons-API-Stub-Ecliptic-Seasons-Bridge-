@@ -196,6 +196,9 @@ dependencies {
 
     onlyMainRuntimeOnly "curse.maven:seasonhud-690971:7687514"
 
+
+    onlyMainRuntimeOnly ("maven.modrinth:immersive-snow:Of60m2yB")
+
     println("----Scan onlyMainRuntimeOnly libs begin----")
     fileTree(dir: 'libs', include: ['*.jar']).each { File file ->
         def fileName = file.name
