@@ -2,7 +2,7 @@
   "required": true,
   "package": "com.teamtea.eclipticseasons_serene_compatibility.mixin",
   "compatibilityLevel": "JAVA_17",
-  "refmap": "eclipticseasons_multimodpatch.refmap.json",
+  "refmap": "sereneseasons.refmap.json",
   "mixins": [
     "MixinBiome"
   ],
