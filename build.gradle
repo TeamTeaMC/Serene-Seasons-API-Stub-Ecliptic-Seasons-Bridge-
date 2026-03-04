@@ -190,8 +190,10 @@ dependencies {
     compileOnly "curse.maven:serene-seasons-291874:6182596"
     implementation "curse.maven:glitchcore-955399:5660740"
 
-    implementation "curse.maven:more-ornamental-plants-1390419:7701617"
-    implementation "curse.maven:terrablender-neoforge-940057:6054947"
+
+    onlyMainRuntimeOnly "curse.maven:swaying-garden-1203057:6936017"
+
+    onlyMainRuntimeOnly "curse.maven:seasonhud-690971:7687514"
 
     println("----Scan onlyMainRuntimeOnly libs begin----")
     fileTree(dir: 'libs', include: ['*.jar']).each { File file ->
