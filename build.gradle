@@ -190,6 +190,7 @@ dependencies {
     compileOnly "curse.maven:serene-seasons-291874:6182596"
     implementation "curse.maven:glitchcore-955399:5660740"
 
+    onlyMainRuntimeOnly ("maven.modrinth:immersive-snow:Of60m2yB")
 
     onlyMainRuntimeOnly "curse.maven:swaying-garden-1203057:6936017"
 

@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.teamtea.eclipticseasons_serene_compatibility.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "eclipticseasons_multimodpatch.refmap.json",
+  "mixins": [
+    "MixinBiome"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

@@ -7,8 +7,6 @@
 
 package sereneseasons.config;
 
-import com.teamtea.eclipticseasons.api.constant.solar.SolarTerm;
-import com.teamtea.eclipticseasons.config.ClientConfig;
 import com.teamtea.eclipticseasons.config.CommonConfig;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.Level;
