@@ -91,7 +91,7 @@ jobs:
       - name: Set Release Name Environment Variable
         id: set_release_name
         run: |
-          RELEASE_NAME=$(basename $(ls build/libs/*.jar))
+          RELEASE_NAME=$(basename $(ls build/libs/*-all.jar))
           echo "RELEASE_NAME=$RELEASE_NAME" >> $GITHUB_ENV
 
       - name: Publish (CurseForge)

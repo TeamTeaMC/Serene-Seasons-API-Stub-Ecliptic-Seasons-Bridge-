@@ -2,10 +2,14 @@ package com.teamtea.eclipticseasons_serene_compatibility.config;
 
 import com.teamtea.eclipticseasons.config.ClientConfig;
 import com.teamtea.eclipticseasons.config.CommonConfig;
+import com.teamtea.eclipticseasons_serene_compatibility.SereneCompatibility;
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
 import sereneseasons.init.ModConfig;
 
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class LayerCommonConfig {
     public static final ForgeConfigSpec COMMON_CONFIG = new ForgeConfigSpec.Builder().configure(LayerCommonConfig::new).getRight();
 
@@ -13,6 +17,7 @@ public class LayerCommonConfig {
 
     }
 
+    @SubscribeEvent
     public static void UpdateConfig(ModConfigEvent modConfigEvent) {
         if (!(modConfigEvent instanceof ModConfigEvent.Unloading)
                 && modConfigEvent.getConfig().getSpec() == CommonConfig.COMMON_CONFIG) {
