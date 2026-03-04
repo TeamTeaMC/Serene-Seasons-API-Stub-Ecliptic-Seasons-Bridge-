@@ -1,6 +1,7 @@
 package com.teamtea.eclipticseasons_serene_compatibility;
 
 
+import com.teamtea.eclipticseasons.common.registry.ItemRegistry;
 import com.teamtea.eclipticseasons_serene_compatibility.config.LayerClientConfig;
 import com.teamtea.eclipticseasons_serene_compatibility.config.LayerCommonConfig;
 import net.minecraft.resources.ResourceLocation;
@@ -18,6 +19,7 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import sereneseasons.api.SSItems;
 
 import java.util.List;
 
@@ -109,6 +111,7 @@ public class SereneCompatibility {
     public void FMLCommonSetup(final FMLCommonSetupEvent event) {
         sereneseasons.init.ModConfig.init();
         LayerCommonConfig.init();
+        SSItems.CALENDAR= ItemRegistry.calendar_item.get();
     }
 
     public void gatherData(final GatherDataEvent event) {
