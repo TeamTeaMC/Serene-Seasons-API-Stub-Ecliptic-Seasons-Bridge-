@@ -219,10 +219,10 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft "net.minecraftforge:forge:${minecraft_min_version}-${forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.5.0"))
-    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.5.0")) {
-        jarJar.ranged(it, "[0.5.0,)")
-    }
+//    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.5.0"))
+//    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.5.0")) {
+//        jarJar.ranged(it, "[0.5.0,)")
+//    }
 
     // others
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
@@ -251,6 +251,8 @@ dependencies {
 
     compileOnly fg.deobf("curse.maven:serene-seasons-291874:6398227")
     compileOnly fg.deobf("curse.maven:glitchcore-955399:5787839")
+
+    onlyMainRuntimeOnly fg.deobf("curse.maven:seasonhud-690971:7687218")
 
     println("----Scan libs begin----")
     fileTree(dir: 'libs', include: ['*.jar']).each { File file ->
