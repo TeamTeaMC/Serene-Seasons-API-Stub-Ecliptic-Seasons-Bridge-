@@ -23,6 +23,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biome.Precipitation;
+import net.minecraft.world.level.block.state.BlockState;
 import sereneseasons.api.season.Season;
 
 public class SeasonHooks {
@@ -35,8 +36,14 @@ public class SeasonHooks {
 
 
     public static boolean shouldSnowHook(Biome biome, LevelReader levelReader, BlockPos pos) {
-        return getLevel(levelReader) instanceof Level level ? shouldSnow(pos, level) :
-                biome.shouldSnow(levelReader, pos);
+        if (getLevel(levelReader) instanceof Level level) return shouldSnow(pos, level);
+        //====================
+        // patch for no man lands
+        if (false) {
+            BlockState blockState = levelReader.getBlockState(pos);
+        }
+        //====================
+        return biome.shouldSnow(levelReader, pos);
     }
 
     public static boolean shouldFreezeWarmEnoughToRainHook(Biome biome, BlockPos pos, LevelReader levelReader) {
