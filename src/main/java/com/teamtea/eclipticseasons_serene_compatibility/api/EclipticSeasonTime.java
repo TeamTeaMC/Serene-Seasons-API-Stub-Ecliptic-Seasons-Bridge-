@@ -19,7 +19,7 @@ import sereneseasons.api.season.Season.TropicalSeason;
 
 import java.lang.ref.WeakReference;
 
-public final class EclipticSeasonTime implements ISeasonState {
+public class EclipticSeasonTime implements ISeasonState {
 
     public static final ISeasonState ZERO = new EclipticSeasonTime(null);
 

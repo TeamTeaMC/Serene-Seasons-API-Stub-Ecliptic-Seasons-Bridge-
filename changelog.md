@@ -1,3 +1,7 @@
+## 9.1.0.2-patch8
+
+- Tested working with Legendary Survival Overhaul.
+
 ## 9.1.0.2-patch7-1
 
 - Update the cover of this mod.
