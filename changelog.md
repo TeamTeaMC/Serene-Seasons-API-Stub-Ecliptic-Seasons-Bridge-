@@ -1,6 +1,6 @@
 ## 10.1.0.3-patch8
 
-- 
+- Tested working with Legendary Survival Overhaul. 
 
 ## 10.1.0.3-patch7-1
 
