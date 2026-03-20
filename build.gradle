@@ -173,31 +173,31 @@ dependencies {
 
     onlyMainRuntimeOnly "curse.maven:snowy-spirit-566142:7347789"
     onlyMainRuntimeOnly "curse.maven:selene-499980:7695620"
-    onlyMainRuntimeOnly "curse.maven:haunted-harvest-541753:7386439"
+//    onlyMainRuntimeOnly "curse.maven:haunted-harvest-541753:7386439"
 
-    onlyMainRuntimeOnly("curse.maven:cold-sweat-506194:7370181")
+//    onlyMainRuntimeOnly("curse.maven:cold-sweat-506194:7370181")
     onlyMainRuntimeOnly "curse.maven:in-control-257356:6677543"
 
     onlyMainRuntimeOnly "curse.maven:dynamictrees-252818:6611182"
 
-    onlyMainRuntimeOnly "curse.maven:ambientsounds-254284:6978999"
-    onlyMainRuntimeOnly "curse.maven:creativecore-257814:6989504"
+//    onlyMainRuntimeOnly "curse.maven:ambientsounds-254284:6978999"
+//    onlyMainRuntimeOnly "curse.maven:creativecore-257814:6989504"
 
-    onlyMainRuntimeOnly "curse.maven:kiwi-303657:7666569"
-    onlyMainRuntimeOnly "curse.maven:snow-real-magic-308663:7472610"
-    onlyMainRuntimeOnly "curse.maven:snow-under-trees-353942:6776464"
+//    onlyMainRuntimeOnly "curse.maven:kiwi-303657:7666569"
+//    onlyMainRuntimeOnly "curse.maven:snow-real-magic-308663:7472610"
+//    onlyMainRuntimeOnly "curse.maven:snow-under-trees-353942:6776464"
+//    onlyMainRuntimeOnly ("maven.modrinth:immersive-snow:Of60m2yB")
 
     compileOnly "curse.maven:serene-seasons-291874:6182596"
     implementation "curse.maven:glitchcore-955399:5660740"
 
-    onlyMainRuntimeOnly ("maven.modrinth:immersive-snow:Of60m2yB")
 
     onlyMainRuntimeOnly "curse.maven:swaying-garden-1203057:6936017"
 
     onlyMainRuntimeOnly "curse.maven:seasonhud-690971:7687514"
 
+    onlyMainRuntimeOnly "curse.maven:legendary-survival-overhaul-840254:7603851"
 
-    onlyMainRuntimeOnly ("maven.modrinth:immersive-snow:Of60m2yB")
 
     println("----Scan onlyMainRuntimeOnly libs begin----")
     fileTree(dir: 'libs', include: ['*.jar']).each { File file ->
