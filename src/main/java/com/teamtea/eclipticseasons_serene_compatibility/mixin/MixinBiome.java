@@ -21,23 +21,23 @@ public abstract class MixinBiome {
             at = {@At("HEAD")},
             cancellable = true
     )
-    public void eclipticseasons_serene_compatibility$onShouldSnow(LevelReader level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+    public void eclipticseasons_serene_compatibility$onShouldSnow(LevelReader p_level, BlockPos p_pos, CallbackInfoReturnable<Boolean> cir) {
         if (ModConfig.seasons.generateSnowAndIce)
-            cir.setReturnValue(SeasonHooks.shouldSnowHook((Biome) (Object) this, level, pos));
+            cir.setReturnValue(SeasonHooks.shouldSnowHook((Biome) (Object) this, p_level, p_pos, p_level.getSeaLevel()));
     }
 
     @WrapOperation(
             method = {"shouldFreeze(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Z)Z"},
             at = @At(
                     value = "INVOKE",
-                    target = "net/minecraft/world/level/biome/Biome.warmEnoughToRain(Lnet/minecraft/core/BlockPos;)Z"
+                    target = "Lnet/minecraft/world/level/biome/Biome;warmEnoughToRain(Lnet/minecraft/core/BlockPos;I)Z"
             )
     )
-    public boolean eclipticseasons_serene_compatibility$onShouldFreeze_warmEnoughToRain(Biome instance, BlockPos pPos, Operation<Boolean> original,
+    public boolean eclipticseasons_serene_compatibility$onShouldFreeze_warmEnoughToRain(Biome instance, BlockPos p_pos, int seaLevel, Operation<Boolean> original,
                                                                                         @Local(argsOnly = true) LevelReader levelReader) {
         if (ModConfig.seasons.generateSnowAndIce)
-            return SeasonHooks.shouldFreezeWarmEnoughToRainHook(instance, pPos, levelReader);
+            return SeasonHooks.shouldFreezeWarmEnoughToRainHook(instance, p_pos, seaLevel, levelReader);
         else
-            return original.call(instance, pPos);
+            return original.call(instance, p_pos, seaLevel);
     }
 }

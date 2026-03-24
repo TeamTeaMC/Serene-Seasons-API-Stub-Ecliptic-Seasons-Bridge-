@@ -2,7 +2,7 @@ package sereneseasons.init;
 
 import com.teamtea.eclipticseasons_serene_compatibility.SereneCompatibility;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 
@@ -11,7 +11,7 @@ public class ModTags {
 
 
     public static class Biomes {
-        private static TagKey<Biome> tag(ResourceLocation name) {
+        private static TagKey<Biome> tag(Identifier name) {
             return TagKey.create(Registries.BIOME, name);
         }
 

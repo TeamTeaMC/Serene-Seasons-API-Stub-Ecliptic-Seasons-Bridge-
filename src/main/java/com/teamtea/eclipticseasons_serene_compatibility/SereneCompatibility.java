@@ -4,7 +4,7 @@ package com.teamtea.eclipticseasons_serene_compatibility;
 import com.teamtea.eclipticseasons.common.registry.ItemRegistry;
 import com.teamtea.eclipticseasons_serene_compatibility.config.LayerClientConfig;
 import com.teamtea.eclipticseasons_serene_compatibility.config.LayerCommonConfig;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -98,14 +98,14 @@ public class SereneCompatibility {
         modContainer.registerConfig(ModConfig.Type.COMMON, LayerCommonConfig.COMMON_CONFIG);
         modContainer.registerConfig(ModConfig.Type.CLIENT, LayerClientConfig.CLIENT_CONFIG);
 
-        if (FMLLoader.getDist() == Dist.CLIENT)
+        if (FMLLoader.getCurrentOrNull().getDist() == Dist.CLIENT)
             modContainer.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
 
 
     }
 
-    public static ResourceLocation rl(String id) {
-        return ResourceLocation.fromNamespaceAndPath(MODID, id);
+    public static Identifier rl(String id) {
+        return Identifier.fromNamespaceAndPath(MODID, id);
     }
 
     public void FMLCommonSetup(final FMLCommonSetupEvent event) {

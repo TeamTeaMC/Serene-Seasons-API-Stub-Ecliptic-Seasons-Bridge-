@@ -36,7 +36,7 @@ public class SeasonsConfig {
     }
 
     public boolean isDimensionWhitelisted(ResourceKey<Level> dimension) {
-        return (CommonConfig.Season.validDimensions.get().contains(dimension.location().toString()));
+        return (CommonConfig.Season.validDimensions.get().contains(dimension.identifier().toString()));
     }
 
     private static final Map<Season.SubSeason, SeasonProperties> DEFAULT_SEASON_PROPERTIES =
