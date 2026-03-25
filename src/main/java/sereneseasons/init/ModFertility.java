@@ -18,9 +18,9 @@ public class ModFertility {
 
     public static boolean isCropFertile(String cropName, Level level, BlockPos pos) {
         var blockOptional = BuiltInRegistries.BLOCK
-                .listElements().filter(block -> block.getKey().location().getPath().equals(cropName))
+                .stream().filter(block -> block.builtInRegistryHolder().getKey().location().getPath().equals(cropName))
                 .findFirst();
-        return blockOptional.filter(blockReference -> GrowthDetectorItem.getGrowChance(level, pos, blockReference.value().defaultBlockState()) > 0)
+        return blockOptional.filter(blockReference -> GrowthDetectorItem.getGrowChance(level, pos, blockReference.defaultBlockState()) > 0)
                 .isPresent();
     }
 }
