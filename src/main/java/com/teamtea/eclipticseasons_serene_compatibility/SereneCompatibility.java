@@ -89,7 +89,6 @@ public class SereneCompatibility {
 
 
     public SereneCompatibility(IEventBus modEventBus, ModContainer modContainer) {
-        modEventBus.addListener(this::gatherData);
         modEventBus.addListener(this::FMLCommonSetup);
 
         modEventBus.addListener(LayerCommonConfig::UpdateConfig);
@@ -114,7 +113,4 @@ public class SereneCompatibility {
         SSItems.CALENDAR= ItemRegistry.calendar_item.get();
     }
 
-    public void gatherData(final GatherDataEvent event) {
-
-    }
 }
