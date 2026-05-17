@@ -84,6 +84,7 @@ public class SeasonHooks {
     private static boolean shouldSnow(BlockPos pos, Level level1) {
         Holder<Biome> biome;
         biome = MapChecker.getSurfaceBiome(level1, pos);
+        if (WeatherManager.hasNonePrecipitation(biome.value())) return false;
         boolean server = level1 instanceof ServerLevel;
         ISnowTerm snowTerm = SolarTerm.getSnowTerm(biome.value(), server, EclipticUtil.getSnowTempChange(level1));
         SolarTerm solarTerm = EclipticSeasonsApi.getInstance().getSolarTerm(level1);
