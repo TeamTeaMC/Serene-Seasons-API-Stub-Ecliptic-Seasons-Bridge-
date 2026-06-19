@@ -123,48 +123,10 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.38'
     annotationProcessor 'org.projectlombok:lombok:1.18.38'
 
-//    runtimeOnly("curse.maven:jei-238222:5846880")
-//    runtimeOnly("curse.maven:jade-324717:5591256")
-
-    implementation "curse.maven:ecliptic-seasons-1118306:8097391"
-
-//    onlyMainRuntimeOnly("curse.maven:irisshaders-455508:6213632")
-//    onlyMainRuntimeOnly "maven.modrinth:sodium:mc1.21.1-0.6.13-neoforge"
-//
-//    onlyMainRuntimeOnly("curse.maven:spark-361579:5434153")
-//    onlyMainRuntimeOnly("curse.maven:journeymap-32274:6689206")
-//
-//    compileOnly("curse.maven:journeymap-32274:6689206")
-//
-//
-//    onlyMainRuntimeOnly "curse.maven:cloth-config-348521:5729127"
-//    onlyMainRuntimeOnly "curse.maven:pretty-rain-1163800:6347978"
-//
-//    onlyMainRuntimeOnly "curse.maven:snowy-spirit-566142:7347789"
-//    onlyMainRuntimeOnly "curse.maven:selene-499980:7695620"
-////    onlyMainRuntimeOnly "curse.maven:haunted-harvest-541753:7386439"
-//
-////    onlyMainRuntimeOnly("curse.maven:cold-sweat-506194:7370181")
-//    onlyMainRuntimeOnly "curse.maven:in-control-257356:6677543"
-//
-//    onlyMainRuntimeOnly "curse.maven:dynamictrees-252818:6611182"
-//
-////    onlyMainRuntimeOnly "curse.maven:ambientsounds-254284:6978999"
-////    onlyMainRuntimeOnly "curse.maven:creativecore-257814:6989504"
-//
-////    onlyMainRuntimeOnly "curse.maven:kiwi-303657:7666569"
-////    onlyMainRuntimeOnly "curse.maven:snow-real-magic-308663:7472610"
-////    onlyMainRuntimeOnly "curse.maven:snow-under-trees-353942:6776464"
-////    onlyMainRuntimeOnly ("maven.modrinth:immersive-snow:Of60m2yB")
+    implementation "curse.maven:ecliptic-seasons-1118306:8271260"
 
     compileOnly "curse.maven:serene-seasons-291874:7774493"
-    implementation "curse.maven:glitchcore-955399:7873146"
-
-//    onlyMainRuntimeOnly "curse.maven:swaying-garden-1203057:6936017"
-//
-//    onlyMainRuntimeOnly "curse.maven:seasonhud-690971:7687514"
-//
-//    onlyMainRuntimeOnly "curse.maven:legendary-survival-overhaul-840254:7603851"
+    compileOnly "curse.maven:glitchcore-955399:7873146"
 
 
     println("----Scan onlyMainRuntimeOnly libs begin----")
@@ -176,29 +138,7 @@ dependencies {
                 version: fileName.substring(0, fileName.indexOf(".jar")))
     }
     println("----Scan onlyMainRuntimeOnly libs end----")
-//    runtimeOnly ("curse.maven:spark-361579:5434153")
 
-    // Example optional mod dependency with JEI
-    // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
-    // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
-    // compileOnly "mezz.jei:jei-${mc_version}-neoforge-api:${jei_version}"
-    // We add the full version to localRuntime, not runtimeOnly, so that we do not publish a dependency on it
-    // localRuntime "mezz.jei:jei-${mc_version}-neoforge:${jei_version}"
-
-    // Example mod dependency using a mod jar from ./libs with a flat dir repository
-    // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
-    // The group id is ignored when searching -- in this case, it is "blank"
-    // implementation "blank:coolmod-${mc_version}:${coolmod_version}"
-
-    // Example mod dependency using a file as dependency
-    // implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
-
-    // Example project dependency using a sister or child project:
-    // implementation project(":myproject")
-
-    // For more info:
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
