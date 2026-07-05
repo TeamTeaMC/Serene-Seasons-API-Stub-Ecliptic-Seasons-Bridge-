@@ -74,7 +74,7 @@ public class SeasonHooks {
 
     public static boolean warmEnoughToRainSeasonal(LevelReader level, Holder<Biome> biome, BlockPos pos, int seaLevel) {
         if (getLevel(level) instanceof Level level1) {
-            return shouldSnow(pos, level1);
+            return !shouldSnow(pos, level1);
         }
         return getBiomeTemperature(level, biome, pos, seaLevel) >= 0.15F;
     }
