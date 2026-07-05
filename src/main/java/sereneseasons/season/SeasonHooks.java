@@ -103,7 +103,7 @@ public class SeasonHooks {
         if (shouldSnow(pos, level)) {
             return Math.min(temperatureFloat, 0.15f - 0.00001f);
         }
-        return temperatureFloat;
+        return Math.max(temperatureFloat, 0.15f + 0.00001f);
     }
 
 
