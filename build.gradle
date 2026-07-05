@@ -193,6 +193,7 @@ dependencies {
     compileOnly "curse.maven:serene-seasons-291874:6182596"
     implementation "curse.maven:glitchcore-955399:5660740"
 
+    runtimeOnly "curse.maven:snow-under-trees-353942:8249253"
 
     runtimeOnly "curse.maven:swaying-garden-1203057:6936017"
 
