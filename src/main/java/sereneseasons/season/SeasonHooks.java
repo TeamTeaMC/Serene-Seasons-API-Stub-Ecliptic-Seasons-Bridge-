@@ -90,13 +90,13 @@ public class SeasonHooks {
         return biome.value().getTemperature(pos);
     }
 
-    //Append
+    // Append
     public static float getBiomeTemperature(Level level, Holder<Biome> biome, BlockPos pos) {
         float temperatureFloat = EclipticUtil.getTemperatureFloat(level, biome.value(), pos);
         if (shouldSnow(pos, level)) {
             return Math.min(temperatureFloat, 0.15f - 0.00001f);
         }
-        return temperatureFloat;
+        return Math.max(temperatureFloat, 0.15f + 0.00001f);
     }
 
 

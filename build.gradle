@@ -256,6 +256,8 @@ dependencies {
 
     onlyMainRuntimeOnly fg.deobf("maven.modrinth:immersive-snow:AMiwaWoo")
 
+    onlyMainRuntimeOnly fg.deobf("curse.maven:legendary-survival-overhaul-840254:7603852")
+
     println("----Scan libs begin----")
     fileTree(dir: 'libs', include: ['*.jar']).each { File file ->
         def fileName = file.name
